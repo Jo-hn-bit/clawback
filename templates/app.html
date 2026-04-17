@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clawback — Analyze Your Complaint</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/landing.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}">
+</head>
+<body>
+
+<div class="bg-grid"></div>
+<div class="bg-glow bg-glow-1"></div>
+<div class="bg-glow bg-glow-2"></div>
+<div class="bg-noise"></div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="logo">
+      <span class="logo-mark">↺</span>
+      <span class="logo-text">Clawback</span>
+    </a>
+    <a href="/" class="btn btn-ghost nav-cta">← Back to home</a>
+  </div>
+</nav>
+
+<main class="app-main">
+
+  <!-- INPUT SECTION -->
+  <section class="app-hero">
+    <div class="app-hero-inner">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        AI-powered analysis · 60 seconds
+      </div>
+      <h1 class="app-title">
+        Tell us what happened.<br>
+        <span class="hero-italic">We'll handle the rest.</span>
+      </h1>
+      <p class="app-subtitle">
+        Describe your situation in plain English. Our ML models will predict your refund odds and write the perfect complaint letter.
+      </p>
+    </div>
+  </section>
+
+  <section class="app-form-section">
+    <div class="app-container">
+      <div class="form-card">
+        <div class="form-row">
+          <label class="field-label">
+            <span class="field-num">01</span>
+            Which company?
+          </label>
+          <input
+            type="text"
+            id="company-input"
+            class="text-input"
+            placeholder="e.g. Bank of America, Verizon, Amazon..."
+            autocomplete="off"
+          >
+        </div>
+
+        <div class="form-row">
+          <label class="field-label">
+            <span class="field-num">02</span>
+            What happened? Be specific.
+          </label>
+          <textarea
+            id="complaint-input"
+            class="text-input textarea"
+            placeholder="Example: I was charged $89 twice for a subscription I cancelled three weeks ago. I have email confirmation of the cancellation. Customer service has refused to refund the duplicate charges and won't escalate my issue."
+            rows="8"
+          ></textarea>
+          <div class="field-hint">
+            <span id="char-count">0</span> characters
+            <span class="hint-tip">· Tip: Mention dollar amounts, dates, and any prior attempts to resolve</span>
+          </div>
+        </div>
+
+        <button id="analyze-btn" class="btn btn-primary btn-xl analyze-btn">
+          <span class="btn-text">Analyze my complaint</span>
+          <span class="btn-arrow">→</span>
+          <span class="btn-spinner"></span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTS SECTION -->
+  <section class="results-section" id="results" style="display: none;">
+    <div class="app-container">
+
+      <!-- The big success score -->
+      <div class="results-card score-card">
+        <div class="score-header">
+          <div>
+            <div class="score-eyebrow">Predicted refund probability</div>
+            <div class="score-category" id="result-category">—</div>
+          </div>
+          <div id="score-pill" class="gauge-pill gauge-pill-success">—</div>
+        </div>
+        <div class="score-display">
+          <div class="score-number">
+            <span id="score-value">0</span><span class="score-percent">%</span>
+          </div>
+          <div class="score-meter">
+            <div class="score-fill" id="score-fill" style="width: 0%"></div>
+          </div>
+        </div>
+        <div class="score-breakdown">
+          <div class="breakdown-row">
+            <div class="breakdown-label">
+              <span class="breakdown-dot dot-green"></span>
+              Got money back
+            </div>
+            <div class="breakdown-value" id="prob-monetary">—</div>
+          </div>
+          <div class="breakdown-row">
+            <div class="breakdown-label">
+              <span class="breakdown-dot dot-yellow"></span>
+              Account fix only
+            </div>
+            <div class="breakdown-value" id="prob-non-monetary">—</div>
+          </div>
+          <div class="breakdown-row">
+            <div class="breakdown-label">
+              <span class="breakdown-dot dot-red"></span>
+              Closed without action
+            </div>
+            <div class="breakdown-value" id="prob-no-relief">—</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="results-grid">
+        <!-- Company info -->
+        <div class="results-card" id="company-card">
+          <div class="card-eyebrow">Company track record</div>
+          <div id="company-content">
+            <p class="empty-text">No historical data on this specific company.</p>
+          </div>
+        </div>
+
+        <!-- Feature analysis -->
+        <div class="results-card">
+          <div class="card-eyebrow">Your complaint scored on</div>
+          <div class="features-grid" id="features-grid">
+            <!-- populated by JS -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Pattern analysis -->
+      <div class="results-card patterns-card">
+        <div class="card-eyebrow">Pattern analysis</div>
+        <div class="patterns-grid">
+          <div>
+            <div class="patterns-title">
+              <span class="patterns-icon icon-success">✓</span>
+              Winning phrases you used
+            </div>
+            <div class="patterns-list" id="patterns-present">
+              <!-- populated by JS -->
+            </div>
+          </div>
+          <div>
+            <div class="patterns-title">
+              <span class="patterns-icon icon-warn">↑</span>
+              Add these to boost your odds
+            </div>
+            <div class="patterns-list" id="patterns-suggested">
+              <!-- populated by JS -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- The generated letter -->
+      <div class="results-card letter-card">
+        <div class="card-header-row">
+          <div>
+            <div class="card-eyebrow">Your AI-generated complaint letter</div>
+            <div class="card-title">Optimized using patterns from successful complaints</div>
+          </div>
+          <button id="copy-btn" class="btn btn-ghost copy-btn">
+            <span>📋</span> Copy letter
+          </button>
+        </div>
+        <div class="letter-output" id="letter-output">
+          <!-- populated by JS -->
+        </div>
+      </div>
+
+      <div class="restart-row">
+        <button id="restart-btn" class="btn btn-ghost btn-large">
+          ← Analyze another complaint
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

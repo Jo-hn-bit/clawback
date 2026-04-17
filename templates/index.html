@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clawback — Get Your Money Back. Powered by AI.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/landing.css') }}">
+</head>
+<body>
+
+<!-- Background atmosphere -->
+<div class="bg-grid"></div>
+<div class="bg-glow bg-glow-1"></div>
+<div class="bg-glow bg-glow-2"></div>
+<div class="bg-glow bg-glow-3"></div>
+<div class="bg-noise"></div>
+
+<!-- Navigation -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="logo">
+      <span class="logo-mark">↺</span>
+      <span class="logo-text">Clawback</span>
+    </a>
+    <div class="nav-links">
+      <a href="#how">How it works</a>
+      <a href="#science">The data science</a>
+      <a href="#stats">Results</a>
+    </div>
+    <a href="/app" class="btn btn-primary nav-cta">Try it now <span>→</span></a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">
+      <span class="badge-dot"></span>
+      Trained on 4M+ real consumer complaints
+    </div>
+    <h1 class="hero-title">
+      Stop chasing refunds.<br>
+      <span class="hero-italic">Start winning them.</span>
+    </h1>
+    <p class="hero-subtitle">
+      AI-powered consumer dispute resolution that predicts your refund odds and writes the perfect complaint — based on what actually worked for millions of others before you.
+    </p>
+    <div class="hero-cta">
+      <a href="/app" class="btn btn-primary btn-large">Get my money back <span>→</span></a>
+      <a href="#how" class="btn btn-ghost btn-large">See how it works</a>
+    </div>
+
+    <!-- Hero visual: success score gauge mock -->
+    <div class="hero-visual">
+      <div class="gauge-card">
+        <div class="gauge-header">
+          <div>
+            <div class="gauge-label">Predicted refund probability</div>
+            <div class="gauge-company">"Charged twice for cancelled subscription"</div>
+          </div>
+          <div class="gauge-pill gauge-pill-success">High Success</div>
+        </div>
+        <div class="gauge-meter">
+          <div class="gauge-fill" style="width: 78%"></div>
+          <span class="gauge-percent">78%</span>
+        </div>
+        <div class="gauge-breakdown">
+          <div class="breakdown-item">
+            <span class="breakdown-dot dot-green"></span>
+            <span>Monetary relief: 78%</span>
+          </div>
+          <div class="breakdown-item">
+            <span class="breakdown-dot dot-yellow"></span>
+            <span>Account fix only: 14%</span>
+          </div>
+          <div class="breakdown-item">
+            <span class="breakdown-dot dot-red"></span>
+            <span>Closed without action: 8%</span>
+          </div>
+        </div>
+        <div class="gauge-letter-preview">
+          <div class="letter-header">
+            <span class="letter-icon">✦</span>
+            <span>AI-generated complaint letter</span>
+          </div>
+          <div class="letter-body">
+            <p>To: Customer Relations Department</p>
+            <p>RE: Formal Consumer Complaint and Request for Resolution</p>
+            <p>I am writing to formally lodge a complaint regarding...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<section class="trust-strip">
+  <div class="trust-inner">
+    <div class="trust-text">Built on data from</div>
+    <div class="trust-logos">
+      <span>CFPB Consumer Database</span>
+      <span class="trust-dot">•</span>
+      <span>4M+ Real Complaints</span>
+      <span class="trust-dot">•</span>
+      <span>3,400+ Companies</span>
+      <span class="trust-dot">•</span>
+      <span>Public Government Records</span>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section" id="how">
+  <div class="section-inner">
+    <div class="section-eyebrow">How it works</div>
+    <h2 class="section-title">
+      From frustration to <span class="hero-italic">resolution</span><br>
+      in three steps.
+    </h2>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-number">01</div>
+        <h3>Describe what happened</h3>
+        <p>Tell us about the wrong charge, the failed delivery, the cancelled service you still got billed for. Just plain English.</p>
+        <div class="step-visual step-visual-1"></div>
+      </div>
+      <div class="step">
+        <div class="step-number">02</div>
+        <h3>AI analyzes your odds</h3>
+        <p>Our ML models classify your complaint, look up the company's track record, and predict your probability of getting refunded.</p>
+        <div class="step-visual step-visual-2"></div>
+      </div>
+      <div class="step">
+        <div class="step-number">03</div>
+        <h3>Send the perfect letter</h3>
+        <p>Get a complaint letter optimized using the language patterns that historically win refunds. Copy. Send. Win.</p>
+        <div class="step-visual step-visual-3"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE SCIENCE -->
+<section class="section section-dark" id="science">
+  <div class="section-inner">
+    <div class="section-eyebrow">The data science behind it</div>
+    <h2 class="section-title">
+      Not another LLM wrapper.<br>
+      <span class="hero-italic">Real machine learning.</span>
+    </h2>
+    <p class="section-subtitle">Three models. One mission. Built on 4M+ real complaint outcomes from the U.S. Consumer Financial Protection Bureau.</p>
+
+    <div class="science-grid">
+      <div class="science-card">
+        <div class="science-icon">⊞</div>
+        <h3>Complaint Classifier</h3>
+        <p>NLP model using TF-IDF + Logistic Regression. Reads your description and classifies it into the correct CFPB category — credit cards, debt collection, banking, mortgages, and more.</p>
+        <div class="science-tag">TF-IDF · Logistic Regression · 5K Features</div>
+      </div>
+      <div class="science-card">
+        <div class="science-icon">◈</div>
+        <h3>Resolution Predictor</h3>
+        <p>The centerpiece model. Combines text features with engineered signals (length, dollar amounts, legal terminology) to predict your probability of getting actual money back.</p>
+        <div class="science-tag">Multi-class Classification · Class-Balanced</div>
+      </div>
+      <div class="science-card">
+        <div class="science-icon">⟡</div>
+        <h3>Pattern Mining</h3>
+        <p>We separated winning vs. losing complaints, then extracted the words and phrases statistically more common in those that won. Your letter is shaped by what actually works.</p>
+        <div class="science-tag">N-gram Analysis · Lift Statistics</div>
+      </div>
+    </div>
+
+    <div class="pipeline">
+      <div class="pipeline-title">The full pipeline</div>
+      <div class="pipeline-flow">
+        <div class="pipeline-node">Raw text</div>
+        <div class="pipeline-arrow">→</div>
+        <div class="pipeline-node">Preprocessing</div>
+        <div class="pipeline-arrow">→</div>
+        <div class="pipeline-node">TF-IDF Vectorization</div>
+        <div class="pipeline-arrow">→</div>
+        <div class="pipeline-node">Classification</div>
+        <div class="pipeline-arrow">→</div>
+        <div class="pipeline-node">Outcome Prediction</div>
+        <div class="pipeline-arrow">→</div>
+        <div class="pipeline-node">Pattern-Optimized Letter</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="section" id="stats">
+  <div class="section-inner">
+    <div class="section-eyebrow">The impact, quantified</div>
+    <h2 class="section-title">
+      Built on the <span class="hero-italic">numbers</span>.
+    </h2>
+    <div class="stats-grid">
+      <div class="stat">
+        <div class="stat-value">4M+</div>
+        <div class="stat-label">Real complaints used to train the models</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">3,400+</div>
+        <div class="stat-label">Companies with historical resolution data</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">3</div>
+        <div class="stat-label">ML models working together in the pipeline</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">$0</div>
+        <div class="stat-label">Cost to use. Free, forever.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <h2 class="cta-title">
+      You got screwed.<br>
+      <span class="hero-italic">Now fight back.</span>
+    </h2>
+    <p class="cta-subtitle">It takes 60 seconds. The letter writes itself.</p>
+    <a href="/app" class="btn btn-primary btn-xl">Get my money back <span>→</span></a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-left">
+      <a href="/" class="logo">
+        <span class="logo-mark">↺</span>
+        <span class="logo-text">Clawback</span>
+      </a>
+      <p class="footer-tagline">Smart consumer dispute resolution, powered by data science.</p>
+    </div>
+    <div class="footer-right">
+      <p>Built as a Data Science course project</p>
+      <p class="footer-credit">Trained on the public CFPB Consumer Complaint Database</p>
+    </div>
+  </div>
+</footer>
+
+<script src="{{ url_for('static', filename='js/landing.js') }}"></script>
+</body>
+</html>
